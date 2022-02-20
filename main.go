@@ -12,7 +12,7 @@ func main() {
 	config.Initialize()
 
 	conn, err := net.ListenUDP("udp", &net.UDPAddr{
-		Port: config.GetConfig().Port,
+		Port: config.GetConfig().App.Port,
 		IP:   net.ParseIP("0.0.0.0"),
 	})
 	if err != nil {
