@@ -77,6 +77,7 @@ func (c *Config) Configure(viper func() *viper.Viper) error {
 
 	c.App = App{
 		Env:      v.GetString("APP_ENV"),
+		Port:     v.GetInt("APP_PORT"),
 		LogLevel: v.GetString("LOG_LEVEL"),
 		LogPath:  v.GetString("LOG_PATH"),
 	}
