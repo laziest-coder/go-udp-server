@@ -3,17 +3,20 @@ package repositories
 import (
 	"fmt"
 	"github.com/Express-24/courier-location-tracker/internal/factory"
-	"github.com/Express-24/courier-location-tracker/internal/models"
 )
 
-type CourierLocationRepository interface {
+type CourierLocation interface {
 	InsertLocation(
 		courierId int, latitude float64, longitude float64,
-		speed float64, accuracy float64, azimuth float64) (cl models.CourierLocation)
+		speed float64, accuracy float64, azimuth float64) error
 }
 
 type SqlRepository struct {
 	db factory.DB
+}
+
+func CourierLocationRepository(db factory.DB) CourierLocation {
+	return &SqlRepository{db: db}
 }
 
 func (d SqlRepository) InsertLocation(
@@ -28,12 +31,12 @@ func (d SqlRepository) InsertLocation(
 func (d SqlRepository) queryInsertLocation(
 	courierId int, latitude float64, longitude float64,
 	speed float64, accuracy float64, azimuth float64) string {
-	return "INSERT INTO ex24_drivers_location (" +
+	return "INSERT INTO ex24_drivers_location (driver_id, latitude, longitude, speed, accuracy, azimuth) VALUES (" +
 		fmt.Sprint(courierId) + "," +
 		fmt.Sprint(latitude) + "," +
 		fmt.Sprint(longitude) + "," +
 		fmt.Sprint(speed) + "," +
 		fmt.Sprint(accuracy) + "," +
-		fmt.Sprint(azimuth) + "," +
+		fmt.Sprint(azimuth) +
 		")"
 }
