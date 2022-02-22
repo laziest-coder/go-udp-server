@@ -23,12 +23,12 @@ func (d SqlRepository) InsertLocation(
 	courierId int, latitude float64, longitude float64,
 	speed float64, accuracy float64, azimuth float64) error {
 
-	var query = d.queryInsertLocation(courierId, latitude, longitude, speed, accuracy, azimuth)
+	var query = d.queryInsertLocationQuery(courierId, latitude, longitude, speed, accuracy, azimuth)
 
 	return d.db.Exec(query)
 }
 
-func (d SqlRepository) queryInsertLocation(
+func (d SqlRepository) queryInsertLocationQuery(
 	courierId int, latitude float64, longitude float64,
 	speed float64, accuracy float64, azimuth float64) string {
 	return "INSERT INTO ex24_drivers_location (driver_id, latitude, longitude, speed, accuracy, azimuth) VALUES (" +
