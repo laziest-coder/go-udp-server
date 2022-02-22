@@ -50,7 +50,7 @@ func (s Server) Start() {
 			continue
 		}
 
-		_, err = cl.ValidateData()
+		err = cl.ValidateData()
 		if err != nil {
 			log.WithField("data", cl).Error("Error while validating incoming json data: ", err)
 			continue

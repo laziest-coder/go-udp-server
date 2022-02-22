@@ -12,15 +12,15 @@ type CourierLocation struct {
 	CreatedDateTime float64 `db:"created_datetime"`
 }
 
-func (c CourierLocation) ValidateData() (bool, error) {
+func (c CourierLocation) ValidateData() error {
 	if !(c.CourierId > 0) {
-		return false, errors.New("missing courier id field")
+		return errors.New("missing courier id field")
 	}
 	if !(c.Latitude > 0) {
-		return false, errors.New("missing latitude field")
+		return errors.New("missing latitude field")
 	}
 	if !(c.Longitude > 0) {
-		return false, errors.New("missing longitude field")
+		return errors.New("missing longitude field")
 	}
-	return true, nil
+	return nil
 }
