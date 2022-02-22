@@ -65,5 +65,3 @@ func (s Server) Start() {
 		}
 	}
 }
-
-//{"courier_id":4512,"latitude":41.29359610,"longitude":69.24266100,"speed":34.4,"accuracy":52.2284,"azimuth":0.0582806}
