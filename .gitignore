@@ -1,6 +1,7 @@
 .idea
 .env
 configs.yaml
+build
 
 # Binaries for programs and plugins
 *.exe
