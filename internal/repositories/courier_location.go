@@ -31,7 +31,7 @@ func (d SqlRepository) InsertLocation(
 func (d SqlRepository) queryInsertLocationQuery(
 	courierId int, latitude float64, longitude float64,
 	speed float64, accuracy float64, azimuth float64) string {
-	return "INSERT INTO ex24_drivers_location (driver_id, latitude, longitude, speed, accuracy, azimuth) VALUES (" +
+	return "INSERT INTO couriers_location (courier_id, latitude, longitude, speed, accuracy, azimuth) VALUES (" +
 		fmt.Sprint(courierId) + "," +
 		fmt.Sprint(latitude) + "," +
 		fmt.Sprint(longitude) + "," +

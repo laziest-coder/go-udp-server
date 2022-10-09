@@ -3,7 +3,7 @@ package models
 import "errors"
 
 type CourierLocation struct {
-	CourierId       int64   `json:"courier_id" db:"driver_id"`
+	CourierId       int64   `json:"courier_id" db:"courier_id"`
 	Latitude        float64 `json:"latitude" db:"latitude"`
 	Longitude       float64 `json:"longitude" db:"longitude"`
 	Speed           float64 `json:"speed" db:"speed"`

@@ -1,9 +1,8 @@
-## About the service
+## About the repository
 
-`Courier Location Tracker` is a very simple service that starts UDP server 
-on port written in `.env` file. It receives data in raw bytes that has a certain
-structure in json, decodes it and inserts data to table `ex24_drivers_location`.
-Other details can be found in [ClickUp Docs](https://app.clickup.com/3609340/v/dc/3e4qw-1174/3e4qw-14663).
+This repository is about a very simple service that starts UDP server 
+on port written in `.env` file. It receives raw data in bytes that has a certain
+structure in json, decodes it and inserts data to an example table `couriers_location`.
 
 ## How to start the service
 
@@ -15,6 +14,6 @@ Other details can be found in [ClickUp Docs](https://app.clickup.com/3609340/v/d
 
 1. Open UDP connection with command `nc -u 0.0.0.0 {port}` where `{port}` is filled in `.env` file
 2. Send packet `{"courier_id":int,"latitude":float,"longitude":float,"speed":float,"accuracy":float,"azimuth":float}`
-3. Check if the record is inserted in table `ex24_drivers_location`
+3. Check if the record is inserted in table `couriers_location`
 
 > **_NOTE:_** If packet does not match format, service will return error message and record will not be saved!
